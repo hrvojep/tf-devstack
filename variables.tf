@@ -14,31 +14,43 @@ variable "os_password" {
 variable "os_region" {
     default = ""
 }
+
+variable "default_domain" {
+    default = "default"
+  
+}
+## Admin Project - Denethor
+
 ## Project A
 
 variable "project_a_name" {
-  default = "Aragorn"
+  default = "project-faramir"
 }
 
 variable "project_a_user" {
-    default = "project_a"
+    default = "Faramir"
 }
 
 ## Project B
 
 variable "project_b_name" {
-  default = "Boromir"
+  default = "project-boromir"
 }
 
 variable "project_b_user" {
-    default = "project_b"
+    default = "Boromir"
 }
 
 ## Denethor - Admin Users
+
+variable "denethor_name" {
+    default = "project-denethor"
+  
+}
 variable "denethor_user" {
     default = "Denethor"
+  
 }
-
 
 
 
