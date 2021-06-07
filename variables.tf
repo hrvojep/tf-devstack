@@ -17,10 +17,28 @@ variable "os_region" {
 ## Project A
 
 variable "project_a_name" {
-  default = "Argonath"
+  default = "Aragorn"
 }
 
 variable "project_a_user" {
     default = "project_a"
 }
+
+## Project B
+
+variable "project_b_name" {
+  default = "Boromir"
+}
+
+variable "project_b_user" {
+    default = "project_b"
+}
+
+## Denethor - Admin Users
+variable "denethor_user" {
+    default = "Denethor"
+}
+
+
+
 
