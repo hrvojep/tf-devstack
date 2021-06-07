@@ -69,3 +69,9 @@ resource "openstack_identity_role_assignment_v3" "denethor_steward_group_assignm
     role_id = openstack_identity_role_v3.steward_role.id
   
 }
+
+resource "openstack_identity_role_assignment_v3" "gondor_project_assignment_1" {
+    group_id = openstack_identity_group_v3.gondor_pg.id
+    project_id = [openstack_identity_project_v3.project_a.id, openstack_identity_project_v3.project_b.id]
+  
+}
