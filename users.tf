@@ -58,11 +58,6 @@ resource "openstack_identity_group_v3" "gondor_pg" {
 
 }
 
-resource "openstack_identity_user_membership_v3" "gondor_membership" {
-    user_id = openstack_identity_user_v3.denethor_user.id
-    group_id = openstack_identity_group_v3.gondor_pg.id  
-}
-
 resource "openstack_identity_role_assignment_v3" "gondor_role_assignment" {
     group_id = openstack_identity_group_v3.gondor_pg.id
     role_id = openstack_identity_role_v3.denethor_role.id
