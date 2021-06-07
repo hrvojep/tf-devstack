@@ -63,7 +63,7 @@ resource "openstack_identity_role_assignment_v3" "steward_role_group_assignment"
     role_id = openstack_identity_role_v3.steward_role.id
   
 }
-
+#changes
 resource "openstack_identity_role_assignment_v3" "denethor_steward_group_assignment" {
     user_id = openstack_identity_user_v3.denethor_user.id
     role_id = openstack_identity_role_v3.steward_role.id
