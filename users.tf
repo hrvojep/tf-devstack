@@ -11,10 +11,9 @@ resource "openstack_identity_role_v3" "project_a_role" {
 }
 
 resource "openstack_identity_role_assignment_v3" "project_a_ra" {
-    user_id = openstack_identity_user_v3.project_a_user.id
     project_id = openstack_identity_project_v3.project_a.id
     role_id = openstack_identity_role_v3.project_a_role.id
-    group_id = openstack_identity_group_v3.gondor_pg.id
+    user_id = openstack_identity_user_v3.project_a_user.id
 }
 
 # Project B - Boromir
@@ -31,10 +30,10 @@ resource "openstack_identity_role_v3" "project_b_role" {
 }
 
 resource "openstack_identity_role_assignment_v3" "project_b_ra" {
-    user_id = openstack_identity_user_v3.project_b_user.id
-    group_id = openstack_identity_group_v3.gondor_pg.id
     project_id = openstack_identity_project_v3.project_b.id
     role_id = openstack_identity_role_v3.project_b_role.id
+    user_id = openstack_identity_user_v3.project_b_user.id
+
 }
 
 ## Admin User - denethor
@@ -43,35 +42,21 @@ resource "openstack_identity_user_v3" "denethor_user" {
   name = var.denethor_user
   password = "Hashi123!"
   description = var.denethor_user
+  default_project_id = openstack_identity_project_v3.project_denethor.id
 }
 
+
+# Role to link people together
 resource "openstack_identity_role_v3" "steward_role" {
-    name = "Admin (Steward) Role"
+    name = "Steward Role (Administrator)"
   
 }
 
-## Project Group for Administrative Group
+## Gondor Project Group for Administration
 
 resource "openstack_identity_group_v3" "gondor_pg" {
-  name = "gondor Project Group"
-  description = "gondor Project Group"
+  name = "Gondor Project Group"
+  description = "Gondor Project Group"
 
 }
 
-resource "openstack_identity_role_assignment_v3" "steward_role_group_assignment" {
-    group_id = openstack_identity_group_v3.gondor_pg.id
-    role_id = openstack_identity_role_v3.steward_role.id
-  
-}
-#changes
-resource "openstack_identity_role_assignment_v3" "denethor_steward_group_assignment" {
-    user_id = openstack_identity_user_v3.denethor_user.id
-    role_id = openstack_identity_role_v3.steward_role.id
-  
-}
-
-resource "openstack_identity_role_assignment_v3" "gondor_project_assignment_1" {
-    group_id = openstack_identity_group_v3.gondor_pg.id
-    project_id = [openstack_identity_project_v3.project_a.id, openstack_identity_project_v3.project_b.id]
-  
-}
