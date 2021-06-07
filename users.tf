@@ -45,8 +45,8 @@ resource "openstack_identity_user_v3" "denethor_user" {
   description = var.denethor_user
 }
 
-resource "openstack_identity_role_v3" "denethor_role" {
-    name = "denethor Role"
+resource "openstack_identity_role_v3" "steward_role" {
+    name = "Admin (Steward) Role"
   
 }
 
@@ -58,8 +58,14 @@ resource "openstack_identity_group_v3" "gondor_pg" {
 
 }
 
-resource "openstack_identity_role_assignment_v3" "gondor_role_assignment" {
+resource "openstack_identity_role_assignment_v3" "steward_role_group_assignment" {
     group_id = openstack_identity_group_v3.gondor_pg.id
-    role_id = openstack_identity_role_v3.denethor_role.id
+    role_id = openstack_identity_role_v3.steward_role.id
+  
+}
+
+resource "openstack_identity_role_assignment_v3" "denethor_steward_group_assignment" {
+    user_id = openstack_identity_user_v3.denethor_user.id
+    role_id = openstack_identity_role_v3.steward_role.id
   
 }

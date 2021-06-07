@@ -21,7 +21,7 @@ variable "project_a_name" {
 }
 
 variable "project_a_user" {
-    default = "project_a"
+    default = "aragorn"
 }
 
 ## Project B
@@ -31,7 +31,7 @@ variable "project_b_name" {
 }
 
 variable "project_b_user" {
-    default = "project_b"
+    default = "boromir"
 }
 
 ## Denethor - Admin Users
