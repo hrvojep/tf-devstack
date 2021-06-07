@@ -3,6 +3,11 @@ resource "openstack_identity_project_v3" "project_a" {
   description = "Project created by Terraform"
 }
 
+resource "openstack_identity_project_v3" "project_b" {
+  name = var.project_b_name
+  description = "Project created by Terraform"
+}
+
 resource "openstack_compute_quotaset_v2" "project_a_quotaset" {
   project_id           = openstack_identity_project_v3.project_a.id
   key_pairs            = 10
