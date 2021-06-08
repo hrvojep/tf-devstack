@@ -5,6 +5,7 @@ resource "openstack_compute_flavor_v2" "t2_nano" {
     name = "t2.nano"
     ram = "512"
     vcpus = "1"
+    disk =  "0"
   
 }
 
@@ -13,6 +14,7 @@ resource "openstack_compute_flavor_v2" "t2_micro" {
     name = "t2.micro"
     ram = "1024"
     vcpus = "1"
+    disk =  "0"
   
 }
 
@@ -21,6 +23,7 @@ resource "openstack_compute_flavor_v2" "t2_small" {
     name = "t2.small"
     ram = "2048"
     vcpus = "1"
+    disk =  "0"
   
 }
 
