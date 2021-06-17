@@ -38,7 +38,7 @@
       git:
         repo: https://opendev.org/openstack/devstack
         dest: /opt/stack/devstack
-        version: stable/victoria
+        version: stable/wallaby
 
     - name: Copy file with configuration
       copy:
