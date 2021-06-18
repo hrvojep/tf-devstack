@@ -115,6 +115,16 @@ Terraform cannot modify the default Neutron rules for new projects. Therefore we
 3. Validate by logging in with `Boromir`, `Denethor`, or `Faramir` users with the password `Hashi123!`.
 4. Browse to security and note the security group created.
 
+## Flavours
+
+Add instance flavours relevent to the customer.
+
+1. Uncomment the entire file `flavours.tf`.
+2. Create a PR or follow your git ops process
+3. Validate by logging in with `Boromir`, `Denethor`, or `Faramir` users with the password `Hashi123!`
+4. Note the flavours under `Compute -> Instances -> Launch Instance -> Flavour`.
+
+
 ## Additional optimisation
 
 There is room for optimisation of code here by developing modules for:
