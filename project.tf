@@ -21,6 +21,7 @@ resource "openstack_compute_quotaset_v2" "project_a_quotaset" {
   instances            = 5
   server_groups        = 1
   server_group_members = 2
+  metadata_items = 500
 }
 resource "openstack_compute_quotaset_v2" "project_b_quotaset" {
   project_id           = openstack_identity_project_v3.project_b.id
@@ -30,6 +31,8 @@ resource "openstack_compute_quotaset_v2" "project_b_quotaset" {
   instances            = 20
   server_groups        = 4
   server_group_members = 8
+  metadata_items = 500
+
 }
 
 
@@ -41,6 +44,8 @@ resource "openstack_compute_quotaset_v2" "project_denethor_quotaset" {
   instances            = 5
   server_groups        = 1
   server_group_members = 2
+  metadata_items = 500
+
 }
 
 
