@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
 
   # Create additional network interface to make this VM available on the fixed IP address
   # NOTE: I assume that 10.123.123.123 IP is not used in your network
-  config.vm.network "private_network", ip: "10.123.123.123", nic_type: "virtio"
-
+  # config.vm.network "private_network", ip: "10.123.123.123", nic_type: "virtio"
+  config.vm.network "public_network", bridge: "en0: Wi-Fi (Wireless)", ip: "192.168.1.123", nic_type: "virtio", name: "vboxnet2"
   config.vm.provider "virtualbox" do |v|
     # Name visible inside your Virtualbox UI
     v.name = "devstack-vm"
